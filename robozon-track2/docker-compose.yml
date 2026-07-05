@@ -1,0 +1,20 @@
+services:
+  sim:
+    build: .
+    volumes:
+      - ./results:/app/results
+    command: python sim/run_all.py
+
+  wms:
+    build: .
+    command: python wms/mock_wms.py --port 8008
+    ports:
+      - "8008:8008"
+
+  dashboard:
+    build: .
+    volumes:
+      - ./results:/app/results
+    command: streamlit run app.py --server.port 8501 --server.address 0.0.0.0
+    ports:
+      - "8501:8501"

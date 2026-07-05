@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560">
+<rect width="980" height="560" fill="#ffffff"/>
+<text x="490.0" y="26" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" font-weight="bold" fill="#111">Схема 4. КТЯ-станция: тандемная смена короба без остановки потока</text>
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="context-stroke"/></marker></defs>
+<rect x="430" y="50" width="60" height="150" fill="#f4a261" stroke="#8a4f1d" stroke-width="2" rx="0" opacity="1"/>
+<text x="460" y="40" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#111">шахта (сливает 3 яруса)</text>
+<line x1="460" y1="205" x2="460" y2="250" stroke="#c00" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="400" y="250" width="120" height="100" fill="#deb887" stroke="#6b4f1d" stroke-width="2" rx="0" opacity="1"/>
+<text x="460" y="305" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" fill="#111" font-weight="bold">КТЯ</text>
+<text x="460" y="322" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="10" fill="#111">активный</text>
+<line x1="380" y1="250" x2="380" y2="350" stroke="#5a4fcf" stroke-width="2"/>
+<text x="368" y="300" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="10" fill="#3a2fb0" transform="rotate(-90 368 300)">лазерный датчик уровня</text>
+<rect x="398" y="352" width="124" height="8" fill="#adb5bd" stroke="#495057" stroke-width="1" rx="0" opacity="1"/>
+<text x="560" y="360" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="10" fill="#111">тензовесы (контроль веса)</text>
+<rect x="300" y="240" width="70" height="26" fill="#c9ada7" stroke="#6d4c41" stroke-width="1.5" rx="4" opacity="1"/>
+<text x="335" y="257" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="10" fill="#111">вибро</text>
+<text x="335" y="232" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="10" fill="#111">уплотнение 2 Гц</text>
+<rect x="560" y="260" width="110" height="90" fill="#e9ecef" stroke="#868e96" stroke-width="2" rx="0" opacity="1"/>
+<text x="615" y="300" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#111">КТЯ</text>
+<text x="615" y="316" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="10" fill="#111">резервный</text>
+<line x1="556" y1="305" x2="526" y2="305" stroke="#2d6a4f" stroke-width="2" marker-end="url(#arr)"/>
+<text x="600" y="250" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="10" fill="#2d6a4f">сдвиг 8 с (тандем)</text>
+<rect x="310" y="380" width="80" height="30" fill="#5a4fcf" stroke="#3a2fb0" stroke-width="1.5" rx="4" opacity="1"/>
+<text x="350" y="400" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="10" fill="#fff">толкатель</text>
+<line x1="394" y1="395" x2="434" y2="395" stroke="#3a2fb0" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="280" y="430" width="420" height="24" fill="#adb5bd" stroke="#495057" stroke-width="1.5" rx="0" opacity="1"/>
+<line x1="600" y1="442" x2="690" y2="442" stroke="#212529" stroke-width="2.5" marker-end="url(#arr)"/>
+<text x="490" y="470" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#111">отводящая лента (такт толкателя 4 с; 1 лента на 20 станций)</text>
+<rect x="700" y="380" width="150" height="40" fill="#90be6d" stroke="#2d6a4f" stroke-width="1.5" rx="4" opacity="1"/>
+<text x="775" y="405" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="10" fill="#111">формовщик коробов</text>
+<line x1="700" y1="400" x2="676" y2="330" stroke="#2d6a4f" stroke-width="2" marker-end="url(#arr)"/>
+<text x="760" y="360" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="10" fill="#2d6a4f">подача пустых КТЯ</text>
+<text x="150" y="120" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#111" font-weight="bold">Критерии закрытия короба (ЛЮБОЙ):</text>
+<text x="160" y="145" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#111">• объём ≥ 80% (лазерный датчик)</text>
+<text x="160" y="165" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#111">• вес ≥ 18 кг (тензовесы)</text>
+<text x="160" y="185" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#111">• таймаут 20 мин (редкое направление)</text>
+<text x="160" y="205" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#111">• команда WCS (смена волны)</text>
+<text x="150" y="250" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#2d6a4f">Факт (модель): заполнение 83,4%,</text>
+<text x="150" y="268" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#2d6a4f">24,8 товара/короб, 4 034 короба/ч</text>
+
+</svg>

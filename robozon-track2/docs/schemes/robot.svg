@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560">
+<rect width="980" height="560" fill="#ffffff"/>
+<text x="490.0" y="26" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" font-weight="bold" fill="#111">Схема 3. Сортировочный робот АМР-Т5 с наклонным лотком</text>
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="context-stroke"/></marker></defs>
+<rect x="130" y="282.5" width="396.00000000000006" height="137.5" fill="#dee2e6" stroke="#343a40" stroke-width="2" rx="8" opacity="1"/>
+<circle cx="163.0" cy="420" r="30.250000000000004" fill="#495057" stroke="#212529" stroke-width="2"/>
+<circle cx="493.0" cy="420" r="30.250000000000004" fill="#495057" stroke="#212529" stroke-width="2"/>
+<g transform="rotate(-18 328.0 282.5)"><rect x="163.0" y="249.5" width="275.0" height="30.250000000000004" fill="#ffb703" stroke="#845" stroke-width="2" rx="4" opacity="1"/>
+</g>
+<rect x="295.0" y="272.5" width="66.0" height="10" fill="#845" stroke="#845" stroke-width="1" rx="0" opacity="1"/>
+<text x="328.0" y="204.5" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#111">лоток 500×430 мм, наклон ±45°, 0,9 с</text>
+<text x="328.0" y="462" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" fill="#111" font-weight="bold">АМР-Т5: 720×540×330 мм · до 5 кг · 3,0 м/с</text>
+<text x="328.0" y="482" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#555">LiFePO4 307 Вт·ч · 85 Вт ход · зарядка 15 мин</text>
+<line x1="130" y1="434" x2="526.0" y2="434" stroke="#111" stroke-width="1"/>
+<text x="328.0" y="447" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="10" fill="#111">720 мм</text>
+<line x1="116" y1="420" x2="116" y2="282.5" stroke="#111" stroke-width="1"/>
+<text x="104" y="351.25" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="10" fill="#111" transform="rotate(-90 104 351.25)">330 мм</text>
+<text x="760" y="285" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" fill="#111" font-weight="bold">Состав узлов</text>
+<circle cx="600" cy="470" r="3" fill="#c00"/>
+<text x="612" y="474" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#111">камера QR-навигации (низ) + IMU</text>
+<circle cx="600" cy="440" r="3" fill="#c00"/>
+<text x="612" y="444" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#111">контроллер + Wi-Fi 6 (802.11ax) 5 ГГц</text>
+<circle cx="600" cy="410" r="3" fill="#c00"/>
+<text x="612" y="414" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#111">датчики препятствий: 4× ToF + бампер</text>
+<circle cx="600" cy="380" r="3" fill="#c00"/>
+<text x="612" y="384" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#111">мотор-колёса 2×150 Вт, дифф. привод</text>
+<circle cx="600" cy="350" r="3" fill="#c00"/>
+<text x="612" y="354" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#111">контакты автозарядки (сзади)</text>
+<circle cx="600" cy="320" r="3" fill="#c00"/>
+<text x="612" y="324" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#111">тилт-механизм: сервопривод 60 Вт</text>
+<text x="760" y="130" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" fill="#111" font-weight="bold">Рабочий цикл (среднее, модель)</text>
+<text x="600" y="152" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#111">• посадка товара — 1,8 с</text>
+<text x="600" y="172" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#111">• гружёный ход — 46,6 м</text>
+<text x="600" y="192" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#111">• сброс в порт — 2,5 с (4,5 с хрупкие)</text>
+<text x="600" y="212" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#111">• порожний ход к ближайшей станции — 18,5 м</text>
+<text x="600" y="232" text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" fill="#111">• итого цикл ≈ 42,5 с → 84,7 сорт/ч</text>
+
+</svg>
