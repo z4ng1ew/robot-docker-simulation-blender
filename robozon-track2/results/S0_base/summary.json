@@ -1,5 +1,5 @@
 {
-  "backend": "builtin-minides",
+  "backend": "simpy 4.1.2",
   "scenario_hours": 0.02,
   "arrived": 1958,
   "done": 1072,
@@ -27,6 +27,6 @@
   "energy_kwh": 11.0,
   "energy_wh_per_item": 10.21,
   "scenario": "S0_base",
-  "wall_s": 1.3,
+  "wall_s": 1.7,
   "wms_http_requests": 1958
 }

@@ -1,5 +1,5 @@
 {
-  "backend": "builtin-minides",
+  "backend": "simpy 4.1.2",
   "scenario_hours": 4.0,
   "arrived": 414683,
   "done": 413777,
@@ -9,10 +9,10 @@
   "latency_p99_s": 224.9,
   "in_system_end": 906,
   "q_induct_end": 1,
-  "robot_util": 0.931,
+  "robot_util": 0.927,
   "induct_util": 0.864,
-  "boxes_done": 16677,
-  "boxes_partial": 270,
+  "boxes_done": 16674,
+  "boxes_partial": 267,
   "box_fill_avg": 0.835,
   "rejected_pct": 0.297,
   "misplaced_pct": 0.0481,
@@ -27,5 +27,5 @@
   "energy_kwh": 2371.0,
   "energy_wh_per_item": 5.73,
   "scenario": "S1_peak15",
-  "wall_s": 23.0
+  "wall_s": 26.6
 }

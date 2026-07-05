@@ -1,5 +1,5 @@
 {
-  "backend": "builtin-minides",
+  "backend": "simpy 4.1.2",
   "scenario_hours": 2.0,
   "arrived": 240293,
   "done": 217262,
@@ -9,7 +9,7 @@
   "latency_p99_s": 682.8,
   "in_system_end": 23031,
   "q_induct_end": 21968,
-  "robot_util": 0.995,
+  "robot_util": 0.987,
   "induct_util": 0.909,
   "boxes_done": 8651,
   "boxes_partial": 100,
@@ -27,5 +27,5 @@
   "energy_kwh": 1197.0,
   "energy_wh_per_item": 5.51,
   "scenario": "S7_stress120",
-  "wall_s": 12.8
+  "wall_s": 14.6
 }
