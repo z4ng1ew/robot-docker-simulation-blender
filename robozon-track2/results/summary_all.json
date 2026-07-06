@@ -28,7 +28,7 @@
     "energy_kwh": 4711.0,
     "energy_wh_per_item": 5.89,
     "scenario": "S0_base",
-    "wall_s": 51.1
+    "wall_s": 50.8
   },
   "S1_peak15": {
     "backend": "simpy 4.1.2",
@@ -59,7 +59,7 @@
     "energy_kwh": 2371.0,
     "energy_wh_per_item": 5.73,
     "scenario": "S1_peak15",
-    "wall_s": 26.6
+    "wall_s": 26.5
   },
   "S2_robots5": {
     "backend": "simpy 4.1.2",
@@ -121,7 +121,7 @@
     "energy_kwh": 2354.0,
     "energy_wh_per_item": 5.91,
     "scenario": "S3_ports10",
-    "wall_s": 25.5
+    "wall_s": 25.4
   },
   "S4_tier_down": {
     "backend": "simpy 4.1.2",
@@ -152,7 +152,7 @@
     "energy_kwh": 2361.0,
     "energy_wh_per_item": 5.91,
     "scenario": "S4_tier_down",
-    "wall_s": 25.8
+    "wall_s": 25.7
   },
   "S5_induct6": {
     "backend": "simpy 4.1.2",
@@ -183,7 +183,7 @@
     "energy_kwh": 2358.0,
     "energy_wh_per_item": 5.9,
     "scenario": "S5_induct6",
-    "wall_s": 25.5
+    "wall_s": 25.4
   },
   "S6_skew": {
     "backend": "simpy 4.1.2",
@@ -214,7 +214,7 @@
     "energy_kwh": 2343.0,
     "energy_wh_per_item": 5.87,
     "scenario": "S6_skew",
-    "wall_s": 25.5
+    "wall_s": 25.4
   },
   "S7_stress120": {
     "backend": "simpy 4.1.2",
@@ -245,6 +245,6 @@
     "energy_kwh": 1197.0,
     "energy_wh_per_item": 5.51,
     "scenario": "S7_stress120",
-    "wall_s": 14.6
+    "wall_s": 14.5
   }
 }
