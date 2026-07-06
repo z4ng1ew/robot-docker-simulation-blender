@@ -1,5 +1,54 @@
+# Python
 __pycache__/
 *.pyc
-.DS_Store
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# Blender и CAD
 cad/*.step
+cad/*.stp
 cad/*.png
+cad/*.jpg
+cad/*.jpeg
+cad/*.mp4
+cad/*.avi
+cad/*.mov
+cad/render3d/
+*.blend1
+*.blend2
+
+# ОС
+.DS_Store
+Thumbs.db
+
+# Логи и временные файлы
+*.log
+tmp/
+temp/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# S3 и конфиги с секретами
+.env
+.env.local
+*.pem
+*.key
+
+# Видео и рендеры
+*.webm
+*.mkv
+assets/renders/*.png
+assets/renders/*.jpg
+docs/*.png
+docs/*.pdf

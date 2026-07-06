@@ -26,7 +26,9 @@ blender_anim.py — фотореалистичная 3D-анимация АСР-
 """
 
 import math
+import os
 import random
+import subprocess
 
 import bpy
 
@@ -37,7 +39,6 @@ ROBOTS_PER_TIER = 70  # в кадре (реально 460 — для читае�
 SPEEDUP = 2.0         # ускорение времени
 CHUTES_SAMPLE = 40    # сколько шахт показать (из 420)
 RES_X, RES_Y = 1920, 1080
-OUT_PATH = "//roy_3d.mp4"   # '//' = рядом с .blend/скриптом
 
 # геометрия (метры) — синхронизирована с sim/config.py
 FIELD_W, FIELD_H = 60.0, 46.2
@@ -50,6 +51,13 @@ ROBOT_SPEED = 3.0
 ROBOT_DIMS = (0.72, 0.54, 0.33)
 
 rng = random.Random(7)
+
+# новые ключевые кадры сразу с линейным движением (без «плаваний» на углах);
+# работает во всех версиях, в отличие от правки кривых после
+try:
+    bpy.context.preferences.edit.keyframe_new_interpolation_type = "LINEAR"
+except Exception:
+    pass
 
 # ----------------------------------------------------------- сцена с нуля
 bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -93,13 +101,25 @@ if not engine_set:
     except Exception:
         pass  # останется CPU — просто медленнее
 
-# вывод в MP4
-scene.render.image_settings.file_format = "FFMPEG"
-scene.render.ffmpeg.format = "MPEG4"
-scene.render.ffmpeg.codec = "H264"
-scene.render.ffmpeg.constant_rate_factor = "HIGH"
-scene.render.ffmpeg.audio_codec = "NONE"
-scene.render.filepath = OUT_PATH
+# вывод: Blender 4.x умеет писать MP4 сам; в Blender 5.x видеовывод
+# убрали — рендерим PNG-кадры и склеиваем их ffmpeg'ом после рендера
+HERE = os.path.dirname(os.path.abspath(__file__))
+OUT_DIR = os.path.join(HERE, "render3d")          # сюда лягут кадры
+OUT_MP4 = os.path.join(HERE, "roy_3d.mp4")
+
+video_direct = True
+try:
+    scene.render.image_settings.file_format = "FFMPEG"
+    scene.render.ffmpeg.format = "MPEG4"
+    scene.render.ffmpeg.codec = "H264"
+    scene.render.ffmpeg.constant_rate_factor = "HIGH"
+    scene.render.ffmpeg.audio_codec = "NONE"
+    scene.render.filepath = OUT_MP4
+except (TypeError, AttributeError):
+    video_direct = False
+    os.makedirs(OUT_DIR, exist_ok=True)
+    scene.render.image_settings.file_format = "PNG"
+    scene.render.filepath = os.path.join(OUT_DIR, "frame_")
 
 # мир (фон)
 world = bpy.data.worlds.new("World")
@@ -262,11 +282,14 @@ for f in range(1, scene.frame_end + 1):
             o.location = (b.x, b.y, b.z + ROBOT_DIMS[2] / 2)
             o.keyframe_insert("location", frame=f)
 
-for o in objs:                                  # линейное движение без «плаваний»
-    if o.animation_data and o.animation_data.action:
-        for fc in o.animation_data.action.fcurves:
-            for kp in fc.keyframe_points:
-                kp.interpolation = "LINEAR"
+try:                                            # запасной путь для Blender 4.x
+    for o in objs:
+        if o.animation_data and o.animation_data.action:
+            for fc in o.animation_data.action.fcurves:
+                for kp in fc.keyframe_points:
+                    kp.interpolation = "LINEAR"
+except Exception:
+    pass  # в Blender 5 интерполяция уже задана настройкой выше
 
 # ----------------------------------------------------------- свет и камера
 bpy.ops.object.light_add(type="SUN", location=(30, -40, 60))
@@ -299,15 +322,47 @@ rig.rotation_euler = (0, 0, 0)                   # облёт на 70°
 rig.keyframe_insert("rotation_euler", frame=1)
 rig.rotation_euler = (0, 0, math.radians(70))
 rig.keyframe_insert("rotation_euler", frame=scene.frame_end)
-for fc in rig.animation_data.action.fcurves:
-    for kp in fc.keyframe_points:
-        kp.interpolation = "LINEAR"
+try:                                            # запасной путь для Blender 4.x
+    for fc in rig.animation_data.action.fcurves:
+        for kp in fc.keyframe_points:
+            kp.interpolation = "LINEAR"
+except Exception:
+    pass
 
 # ----------------------------------------------------------- рендер
+def encode_frames():
+    """Склейка PNG-кадров в MP4: сначала NVENC (кодировщик на видеокарте
+    NVIDIA), если его нет — libx264 (кодировщик на процессоре)."""
+    pattern = os.path.join(OUT_DIR, "frame_%04d.png")
+    for codec_args in (["-c:v", "h264_nvenc", "-preset", "p5", "-b:v", "8M"],
+                       ["-c:v", "libx264", "-crf", "18"]):
+        cmd = (["ffmpeg", "-y", "-framerate", str(FPS), "-i", pattern]
+               + codec_args + ["-pix_fmt", "yuv420p", OUT_MP4])
+        try:
+            if subprocess.call(cmd) == 0:
+                print("[blender_anim] видео готово:", OUT_MP4)
+                return True
+        except FileNotFoundError:
+            break
+    print("[blender_anim] ffmpeg не сработал — кадры лежат в", OUT_DIR)
+    print("Склей вручную:  ffmpeg -framerate", FPS, "-i",
+          pattern, "-c:v h264_nvenc -pix_fmt yuv420p", OUT_MP4)
+    return False
+
+
 if bpy.app.background:                           # запущено с «-b» — рендерим
     print(f"[blender_anim] движок: {scene.render.engine}, "
-          f"кадров: {scene.frame_end}, вывод: {OUT_PATH}")
+          f"кадров: {scene.frame_end}, "
+          f"режим: {'MP4 напрямую' if video_direct else 'PNG-кадры + ffmpeg'}")
     bpy.ops.render.render(animation=True)
-    print("[blender_anim] готово:", OUT_PATH)
+    if video_direct:
+        print("[blender_anim] готово:", OUT_MP4)
+    else:
+        encode_frames()
 else:
     print("[blender_anim] сцена построена. Рендер анимации: Ctrl+F12")
+    if not video_direct:
+        print("[blender_anim] после рендера склей кадры:  "
+              f"ffmpeg -framerate {FPS} -i "
+              f"{os.path.join(OUT_DIR, 'frame_%04d.png')} "
+              f"-c:v h264_nvenc -pix_fmt yuv420p {OUT_MP4}")
