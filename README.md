@@ -3,6 +3,16 @@
 **Автоматизированный сортировщик: 100 000 товаров/час · 400 направлений ·
 укладка в КТЯ · площадь 3 690 м² (18 % от лимита).**
 
+
+![alt text](robozon-track2/docs/schemes/3d-model.png)
+
+![alt text](robozon-track2/docs/schemes/box_station.svg)
+
+![alt text](robozon-track2/docs/schemes/layout_tier.svg)
+
+
+![alt text](robozon-track2/docs/schemes/section.svg)
+
 Хакатон Ozon Tech «Робозон» · Задача 2 · Команда **«Ящик Шрёдингера»**
 
 Решение: три роботизированных яруса над зоной коробов — 1 380 мобильных
