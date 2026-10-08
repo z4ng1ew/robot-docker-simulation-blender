@@ -1,5 +1,12 @@
 # АСР-100/400 «Рой»
 
+
+## 🎬 Procedural animation
+Blender scene and robot animation are generated entirely by `cad/blender_anim.py`
+(scene build, 3 tiers, robot kinematics, camera fly-through, render):
+blender -b -P robozon-track2/cad/blender_anim.py
+
+
 **Автоматизированный сортировщик: 100 000 товаров/час · 400 направлений ·
 укладка в КТЯ · площадь 3 690 м² (18 % от лимита).**
 
